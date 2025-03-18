@@ -3,10 +3,12 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 #const JUMP_VELOCITY = 4.5
-const CAMERA_SENSITIVITY = 0.01
+const CAMERA_SENSITIVITY = 0.0025
 
 @onready var neck: Node3D = $Neck
 @onready var camera: Camera3D = $Neck/Camera3D
+@onready var raycast: RayCast3D = $Neck/Camera3D/RayCast3D
+@onready var hudCircle: TextureRect = %TextureRect
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -41,3 +43,16 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	click_behavior()
+	
+
+func click_behavior():	
+	if raycast.get_collider() != null:
+		if raycast.get_collider().is_in_group("Clickable"):
+			hudCircle.scale = Vector2(2, 2)
+			if Input.is_action_just_pressed("Click"):	
+				raycast.get_collider().clicked()
+			return
+			
+	hudCircle.scale = Vector2(1, 1)

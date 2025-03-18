@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://tmjgimmorejc"]
+
+[ext_resource type="PackedScene" uid="uid://cpl5n6e0r5gy3" path="res://Models/Door/Door.glb" id="1_7y0h0"]
+[ext_resource type="Script" uid="uid://bt7tv8kn57y3w" path="res://Objects/Main/lock_static_body_3d.gd" id="2_xnqow"]
+[ext_resource type="Script" uid="uid://d0r6xcctgwpf0" path="res://Objects/Door/door.gd" id="2_yh2pu"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yh2pu"]
+points = PackedVector3Array(-0.0196571, -0.976457, -0.114119, 0.0289199, -0.91031, 0.0922, -0.0196571, 0.976457, -0.114119, 1.41451, -0.976457, -0.114119, 1.41451, 0.976457, -0.114119, 0.0289199, 0.91031, 0.0922, 1.36594, -0.91031, 0.0922, 1.36594, 0.91031, 0.0922, 0.987183, 0.121962, -0.144657, 1.232, -0.1445, 0.122728, 0.987183, -0.152548, -0.144657)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c24xa"]
+data = PackedVector3Array(-0.1218, -0.1218, 0.0186, -0.1218, 0.1218, -0.0186, -0.1218, 0.1218, 0.0186, -0.1218, -0.1218, 0.0186, -0.1218, -0.1218, -0.0186, -0.1218, 0.1218, -0.0186, -0.1218, -0.1218, -0.0186, 0.1218, 0.1218, -0.0186, -0.1218, 0.1218, -0.0186, -0.1218, -0.1218, -0.0186, 0.1218, -0.1218, -0.0186, 0.1218, 0.1218, -0.0186, 0.1218, -0.1218, -0.0186, 0.1218, 0.1218, 0.0186, 0.1218, 0.1218, -0.0186, 0.1218, -0.1218, -0.0186, 0.1218, -0.1218, 0.0186, 0.1218, 0.1218, 0.0186, 0.1218, -0.1218, 0.0186, -0.1218, 0.1218, 0.0186, 0.1218, 0.1218, 0.0186, 0.1218, -0.1218, 0.0186, -0.1218, -0.1218, 0.0186, -0.1218, 0.1218, 0.0186, -0.1218, -0.1218, -0.0186, 0.1218, -0.1218, 0.0186, 0.1218, -0.1218, -0.0186, -0.1218, -0.1218, -0.0186, -0.1218, -0.1218, 0.0186, 0.1218, -0.1218, 0.0186, 0.1218, 0.1218, -0.0186, -0.1218, 0.1218, 0.0186, -0.1218, 0.1218, -0.0186, 0.1218, 0.1218, -0.0186, 0.1218, 0.1218, 0.0186, -0.1218, 0.1218, 0.0186)
+
+[sub_resource type="Animation" id="Animation_uxq8m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cjv5y"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 1.80816, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_smr3f"]
+resource_name = "open"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.80816, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cjv5y"]
+_data = {
+&"RESET": SubResource("Animation_uxq8m"),
+&"close": SubResource("Animation_cjv5y"),
+&"open": SubResource("Animation_smr3f")
+}
+
+[node name="Door" instance=ExtResource("1_7y0h0")]
+script = ExtResource("2_yh2pu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_yh2pu")
+
+[node name="LockStaticBody3D" type="StaticBody3D" parent="Door/Lock" index="0" groups=["Clickable"]]
+script = ExtResource("2_xnqow")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/Lock/LockStaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_c24xa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Door" index="2"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_cjv5y")
+}
+autoplay = "RESET"
