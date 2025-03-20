@@ -1,9 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkr0fmfoqkb4o"]
+[gd_scene load_steps=17 format=3 uid="uid://bkr0fmfoqkb4o"]
 
 [ext_resource type="Script" uid="uid://dxed1tjjh3mtr" path="res://Objects/Player/Player.gd" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://bjpj3xgqhqy24" path="res://Objects/Main/main.tscn" id="2_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://hsa6b2vgvslv" path="res://Assets/HUD/Circle.png" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://tmjgimmorejc" path="res://Objects/Door/door.tscn" id="4_fc0e3"]
+[ext_resource type="AudioStream" uid="uid://dogx0khead766" path="res://Sound/Prison_Background.wav" id="6_ryrav"]
+[ext_resource type="Script" uid="uid://dpjfn2dgvkj2n" path="res://audio_prison.gd" id="7_eow3j"]
+[ext_resource type="AudioStream" uid="uid://b8ep0nddt6obe" path="res://Sound/Outside_Background.wav" id="8_j5wjh"]
+[ext_resource type="PackedScene" uid="uid://dky5tj2r01tlg" path="res://Objects/Key/key.tscn" id="9_hve3p"]
+[ext_resource type="Script" uid="uid://dsn3gcn341flj" path="res://audio_outside.gd" id="9_vef74"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mwb40"]
 sky_top_color = Color(0.237047, 0.451117, 0.730818, 1)
@@ -29,13 +34,16 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [sub_resource type="BoxShape3D" id="BoxShape3D_fc0e3"]
 size = Vector3(31.4233, 2.10205, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ryrav"]
+size = Vector3(10.684, 1, 10.871)
+
 [node name="Game" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e2o6t")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["Player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01803, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63996, 1.01803, -0.811893)
 script = ExtResource("1_80nbo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
@@ -55,14 +63,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.393223)
 light_energy = 0.273
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/Neck/Camera3D"]
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -1.5)
 
 [node name="main" parent="." instance=ExtResource("2_e2o6t")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.96642, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.96642, -2.51921)
 light_color = Color(0.830012, 0.679053, 0.530727, 1)
 omni_range = 17.07
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05534, -0.425232, 0.0750628)
+light_color = Color(0.830012, 0.679053, 0.530727, 1)
+omni_range = 17.07
+omni_shadow_mode = 0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05534, -0.68273, -3.05238)
+light_color = Color(0.830012, 0.679053, 0.530727, 1)
+omni_range = 17.07
+omni_shadow_mode = 0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-0.891454, 0.12733, -0.434853, -0.244518, 0.672785, 0.698264, 0.381472, 0.728799, -0.568622, -18.385, 31.8962, -36.6493)
@@ -102,10 +122,40 @@ texture = ExtResource("2_feb5d")
 expand_mode = 1
 stretch_mode = 2
 
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79939, -0.542762, -12.2287)
+[node name="CompletionArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79939, -0.542762, -11.2275)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CompletionArea3D"]
 shape = SubResource("BoxShape3D_fc0e3")
 
-[connection signal="body_entered" from="Area3D" to="Door" method="_on_area_3d_body_entered"]
+[node name="OutsideArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79939, -0.542762, -5.91674)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OutsideArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.293692)
+shape = SubResource("BoxShape3D_fc0e3")
+
+[node name="InsideArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79939, -0.542762, 1.18452)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InsideArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.82553, 0.819298, -0.824759)
+shape = SubResource("BoxShape3D_ryrav")
+
+[node name="AudioPrison" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ryrav")
+volume_db = -40.0
+autoplay = true
+script = ExtResource("7_eow3j")
+
+[node name="AudioOutside" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_j5wjh")
+volume_db = -40.0
+script = ExtResource("9_vef74")
+
+[node name="key" parent="." instance=ExtResource("9_hve3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.92689, 0.0159478, -1.29058)
+
+[connection signal="body_entered" from="CompletionArea3D" to="Door" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="OutsideArea3D" to="AudioOutside" method="_on_outside_area_3d_body_entered"]
+[connection signal="body_entered" from="InsideArea3D" to="AudioPrison" method="_on_inside_area_3d_body_entered"]

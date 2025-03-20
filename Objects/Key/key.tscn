@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dky5tj2r01tlg"]
+
+[ext_resource type="PackedScene" uid="uid://cmpibfi3xcskc" path="res://Models/Key/key.glb" id="1_5l2od"]
+[ext_resource type="Script" uid="uid://ch58p4g5x5a3q" path="res://Objects/Key/area_3d.gd" id="2_hyyp5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hyyp5"]
+size = Vector3(4.64539, 0.588654, 2.38998)
+
+[node name="key" instance=ExtResource("1_5l2od")]
+
+[node name="Area3D" type="StaticBody3D" parent="Key" index="0" groups=["Clickable"]]
+script = ExtResource("2_hyyp5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Key/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0654907, 0.0382538, -0.12059)
+shape = SubResource("BoxShape3D_hyyp5")
