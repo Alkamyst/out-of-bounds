@@ -1,10 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjpj3xgqhqy24"]
+[gd_scene load_steps=11 format=3 uid="uid://bjpj3xgqhqy24"]
 
 [ext_resource type="PackedScene" uid="uid://cnvsssufjfkwm" path="res://Models/Export/main.glb" id="1_pmsrx"]
-[ext_resource type="Script" uid="uid://bt7tv8kn57y3w" path="res://Objects/Main/lock_static_body_3d.gd" id="2_smr3f"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uxq8m"]
-data = PackedVector3Array(-0.1218, -0.1218, 0.0186, -0.1218, 0.1218, -0.0186, -0.1218, 0.1218, 0.0186, -0.1218, -0.1218, 0.0186, -0.1218, -0.1218, -0.0186, -0.1218, 0.1218, -0.0186, -0.1218, -0.1218, -0.0186, 0.1218, 0.1218, -0.0186, -0.1218, 0.1218, -0.0186, -0.1218, -0.1218, -0.0186, 0.1218, -0.1218, -0.0186, 0.1218, 0.1218, -0.0186, 0.1218, -0.1218, -0.0186, 0.1218, 0.1218, 0.0186, 0.1218, 0.1218, -0.0186, 0.1218, -0.1218, -0.0186, 0.1218, -0.1218, 0.0186, 0.1218, 0.1218, 0.0186, 0.1218, -0.1218, 0.0186, -0.1218, 0.1218, 0.0186, 0.1218, 0.1218, 0.0186, 0.1218, -0.1218, 0.0186, -0.1218, -0.1218, 0.0186, -0.1218, 0.1218, 0.0186, -0.1218, -0.1218, -0.0186, 0.1218, -0.1218, 0.0186, 0.1218, -0.1218, -0.0186, -0.1218, -0.1218, -0.0186, -0.1218, -0.1218, 0.0186, 0.1218, -0.1218, 0.0186, 0.1218, 0.1218, -0.0186, -0.1218, 0.1218, 0.0186, -0.1218, 0.1218, -0.0186, 0.1218, 0.1218, -0.0186, 0.1218, 0.1218, 0.0186, -0.1218, 0.1218, 0.0186)
 
 [sub_resource type="Animation" id="Animation_uxq8m"]
 length = 0.001
@@ -76,13 +72,7 @@ points = PackedVector3Array(-1.07525, -3.7408, -1.05773, -0.957244, -4.25087, -1
 
 [node name="main" instance=ExtResource("1_pmsrx")]
 
-[node name="@CollisionShape3D@82014" type="CollisionShape3D" parent="." index="0"]
-shape = SubResource("ConcavePolygonShape3D_uxq8m")
-
-[node name="LockStaticBody3D" type="StaticBody3D" parent="." index="1" groups=["Lock"]]
-script = ExtResource("2_smr3f")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_cjv5y")
@@ -100,7 +90,7 @@ shape = SubResource("ConcavePolygonShape3D_cjv5y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.054873, 0)
 shape = SubResource("ConvexPolygonShape3D_smr3f")
 
-[node name="BarsCol" parent="." index="6"]
+[node name="BarsCol" parent="." index="4"]
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BarsCol" index="0"]
@@ -109,7 +99,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00491619, -0.0188236, 0.00527287)
 shape = SubResource("ConcavePolygonShape3D_smr3f")
 
-[node name="FenceCol" parent="." index="8"]
+[node name="FenceCol" parent="." index="6"]
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="FenceCol" index="0"]

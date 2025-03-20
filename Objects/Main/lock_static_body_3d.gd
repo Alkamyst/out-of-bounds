@@ -8,4 +8,5 @@ func clicked():
 	if Globals.got_key:
 		door.open_door()
 		unlock_audio.play()
+		Globals.got_key = false
 		lock.queue_free()

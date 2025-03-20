@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciifc5sssmiie"]
+[gd_scene load_steps=7 format=3 uid="uid://ciifc5sssmiie"]
 
 [ext_resource type="PackedScene" uid="uid://cw1bqpbwutt1e" path="res://Models/MovingWall/MovingWall.glb" id="1_yewwx"]
 [ext_resource type="Script" uid="uid://dykt30wdjmy64" path="res://Objects/MovingWall/moving_wall.gd" id="2_w4pi0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w4pi0"]
+size = Vector3(2.02295, 1.13068, 0.001)
 
 [sub_resource type="Animation" id="Animation_7eikm"]
 length = 0.001
@@ -45,6 +48,12 @@ script = ExtResource("2_w4pi0")
 
 [node name="MovingWall" parent="." index="0"]
 transform = Transform3D(-5.13901, 0, -1.6745e-06, 0, 5.13901, 0, 1.6745e-06, 0, -5.13901, 0.0675929, -0.0128221, 0.0134855)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MovingWall" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingWall/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00366206, 0.138397, -0.0982797)
+shape = SubResource("BoxShape3D_w4pi0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {

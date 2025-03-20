@@ -9,6 +9,7 @@ const CAMERA_SENSITIVITY = 0.0025
 @onready var camera: Camera3D = $Neck/Camera3D
 @onready var raycast: RayCast3D = $Neck/Camera3D/RayCast3D
 @onready var hudCircle: TextureRect = %TextureRect
+@onready var key = $Neck/Camera3D/key
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -45,6 +46,11 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	click_behavior()
+	
+	if Globals.got_key:
+		key.visible = true
+	else:
+		key.visible = false
 	
 
 func click_behavior():	

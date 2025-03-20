@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://tmjgimmorejc"]
+[gd_scene load_steps=13 format=3 uid="uid://tmjgimmorejc"]
 
 [ext_resource type="PackedScene" uid="uid://cpl5n6e0r5gy3" path="res://Models/Door/Door.glb" id="1_7y0h0"]
 [ext_resource type="Script" uid="uid://bt7tv8kn57y3w" path="res://Objects/Main/lock_static_body_3d.gd" id="2_xnqow"]
 [ext_resource type="Script" uid="uid://d0r6xcctgwpf0" path="res://Objects/Door/door.gd" id="2_yh2pu"]
 [ext_resource type="AudioStream" uid="uid://cvsdtcuqyc6ek" path="res://Sound/Unlock.wav" id="4_c24xa"]
+[ext_resource type="Script" uid="uid://delmri2f0vkce" path="res://Objects/Door/lock_2.gd" id="4_y42rg"]
 [ext_resource type="AudioStream" uid="uid://d1d7qwjj8n50l" path="res://Models/Door_Close.wav" id="5_qxoed"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yh2pu"]
@@ -109,6 +110,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_cjv5y")
 }
 autoplay = "RESET"
+
+[node name="Lock2" type="StaticBody3D" parent="Door" index="3" groups=["Clickable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12797, 0.638121, -0.112695)
+script = ExtResource("4_y42rg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/Lock2" index="0"]
+shape = SubResource("ConcavePolygonShape3D_c24xa")
 
 [node name="Audio_Unlock" type="AudioStreamPlayer3D" parent="." index="1"]
 unique_name_in_owner = true
