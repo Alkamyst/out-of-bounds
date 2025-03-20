@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://de3p38e8w2g8q"
+path.s3tc="res://.godot/imported/Chest_diamond_n.png-3d38619947a8c94f70ae62856573fdce.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "23881507dc0ec3285fa0864ba27f992a"
+}
+
+[deps]
+
+source_file="res://Models/Chest/Chest_diamond_n.png"
+dest_files=["res://.godot/imported/Chest_diamond_n.png-3d38619947a8c94f70ae62856573fdce.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Models/Chest/Chest_diamond_n.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
