@@ -10,3 +10,6 @@ func moveWall():
 func _on_outside_area_3d_body_entered(body):
 	if not moved and Globals.unlock_treasure:
 		moveWall()
+		
+func rain():
+	Globals.rain = true

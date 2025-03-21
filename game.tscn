@@ -1,6 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bkr0fmfoqkb4o"]
+[gd_scene load_steps=26 format=3 uid="uid://bkr0fmfoqkb4o"]
 
 [ext_resource type="PackedScene" uid="uid://dqytv6mlol8lc" path="res://Objects/Player/Player.tscn" id="1_iotsf"]
+[ext_resource type="Texture2D" uid="uid://u5mqsur2xyk4" path="res://Assets/Sky/mud_road_puresky_4k.exr" id="1_lc2xo"]
+[ext_resource type="Script" uid="uid://bm7gty5ee3eic" path="res://world_environment.gd" id="2_215e1"]
 [ext_resource type="PackedScene" uid="uid://bjpj3xgqhqy24" path="res://Objects/Main/main.tscn" id="2_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://hsa6b2vgvslv" path="res://Assets/HUD/Circle.png" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://tmjgimmorejc" path="res://Objects/Door/door.tscn" id="4_fc0e3"]
@@ -12,15 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://dok31u84d1wcq" path="res://Objects/Chest/chest.tscn" id="10_hve3p"]
 [ext_resource type="PackedScene" uid="uid://ds4c0nobb6mds" path="res://Objects/Chest/chestOpen.tscn" id="11_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://ciifc5sssmiie" path="res://Objects/MovingWall/moving_wall.tscn" id="12_iotsf"]
+[ext_resource type="Texture2D" uid="uid://b8aerndv71kud" path="res://Assets/Circle.png" id="15_7sc4i"]
+[ext_resource type="Script" uid="uid://dj6gpuh2s1thn" path="res://gpu_particles_3d.gd" id="16_80cx4"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mwb40"]
-sky_top_color = Color(0.237047, 0.451117, 0.730818, 1)
-sky_horizon_color = Color(0.598197, 0.658399, 0.680538, 1)
-ground_bottom_color = Color(0.164406, 0.191145, 0, 1)
-ground_horizon_color = Color(0.598197, 0.658399, 0.680538, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_215e1"]
+panorama = ExtResource("1_lc2xo")
 
 [sub_resource type="Sky" id="Sky_80nbo"]
-sky_material = SubResource("ProceduralSkyMaterial_mwb40")
+sky_material = SubResource("PanoramaSkyMaterial_215e1")
 
 [sub_resource type="Environment" id="Environment_e2o6t"]
 background_mode = 2
@@ -28,6 +29,8 @@ sky = SubResource("Sky_80nbo")
 ambient_light_source = 1
 tonemap_mode = 2
 glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fc0e3"]
 size = Vector3(31.4233, 2.10205, 1)
@@ -35,10 +38,40 @@ size = Vector3(31.4233, 2.10205, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ryrav"]
 size = Vector3(10.684, 1, 10.871)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lc2xo"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 0.5, 20)
+direction = Vector3(0, -2, 0)
+spread = 3.0
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="Curve" id="Curve_lc2xo"]
+_limits = [0.0, 0.1, 0.0, 1.0]
+_data = [Vector2(0, 0.0098588), 0.0, 0.0, 0, 0, Vector2(0.090776, 0.0276745), 0.164138, 0.164138, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_215e1"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.407843, 0.72549, 0.792157, 0.203922)
+albedo_texture = ExtResource("15_7sc4i")
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_215e1"]
+material = SubResource("StandardMaterial3D_215e1")
+curve = SubResource("Curve_lc2xo")
+
 [node name="Game" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e2o6t")
+script = ExtResource("2_215e1")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_iotsf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63996, 1.01803, -0.811893)
@@ -147,6 +180,22 @@ transform = Transform3D(0.889682, -0.252989, -0.380083, 0.182747, 0.960176, -0.2
 transform = Transform3D(0.978155, 0, -0.207878, 0.102133, 0.870982, 0.480581, 0.181058, -0.491314, 0.851956, -0.722005, 0.450654, 1.78539)
 
 [node name="MovingWall" parent="." instance=ExtResource("12_iotsf")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.174394, 16.6795, -10.1392)
+emitting = false
+amount = 2000
+lifetime = 2.0
+visibility_aabb = AABB(-16, -32, -16, 32, 32, 32)
+trail_enabled = true
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_lc2xo")
+draw_pass_1 = SubResource("RibbonTrailMesh_215e1")
+script = ExtResource("16_80cx4")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0747871, 3.48591, -0.473975)
+size = Vector3(11.9965, 3.1499, 10.0789)
 
 [connection signal="body_entered" from="CompletionArea3D" to="Door" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="OutsideArea3D" to="AudioOutside" method="_on_outside_area_3d_body_entered"]

@@ -36,6 +36,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0.0675929, -0.0128221, 0.0134855), Vector3(0.068, -4, 0.013)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.96667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"rain"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqql5"]
 _data = {
