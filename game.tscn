@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bkr0fmfoqkb4o"]
+[gd_scene load_steps=34 format=3 uid="uid://bkr0fmfoqkb4o"]
 
 [ext_resource type="PackedScene" uid="uid://dqytv6mlol8lc" path="res://Objects/Player/Player.tscn" id="1_iotsf"]
 [ext_resource type="Texture2D" uid="uid://u5mqsur2xyk4" path="res://Assets/Sky/mud_road_puresky_4k.exr" id="1_lc2xo"]
@@ -23,16 +23,17 @@
 [ext_resource type="PackedScene" uid="uid://dhwgrilchmw48" path="res://Objects/Toilet/toilet.tscn" id="21_hb5m1"]
 [ext_resource type="PackedScene" uid="uid://7mmi6tg1bg6m" path="res://Objects/Handle/handle.tscn" id="22_x5p1p"]
 [ext_resource type="PackedScene" uid="uid://dd4e3bya12152" path="res://Objects/Clock/Clock.tscn" id="23_qhcbd"]
+[ext_resource type="Script" uid="uid://ds0gxdtwdy5bp" path="res://color_rect.gd" id="24_f1jbl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_215e1"]
 panorama = ExtResource("1_lc2xo")
 
-[sub_resource type="Sky" id="Sky_80nbo"]
+[sub_resource type="Sky" id="Sky_f1jbl"]
 sky_material = SubResource("PanoramaSkyMaterial_215e1")
 
 [sub_resource type="Environment" id="Environment_e2o6t"]
 background_mode = 2
-sky = SubResource("Sky_80nbo")
+sky = SubResource("Sky_f1jbl")
 ambient_light_source = 1
 tonemap_mode = 2
 glow_enabled = true
@@ -231,6 +232,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.18135, 1.17856, -1.68972)
 
 [node name="Clock2" parent="." instance=ExtResource("23_qhcbd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0091, 1.51147, -3.11766)
+
+[node name="FadeIn" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="FadeIn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("24_f1jbl")
 
 [connection signal="body_entered" from="CompletionArea3D" to="Door" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="OutsideArea3D" to="AudioOutside" method="_on_outside_area_3d_body_entered"]

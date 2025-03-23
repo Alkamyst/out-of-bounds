@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-@onready var hand = $"../.."
+@onready var hand = $".."
 @onready var audio: AudioStreamPlayer3D = $"../../Audio_Grab"
 
 func clicked():

@@ -12,3 +12,4 @@ func clicked():
 		if pos >= 12:
 			pos = 0
 		hand.rotation_degrees.y = 30 * pos
+		$"../../../../Audio_Turn".play()

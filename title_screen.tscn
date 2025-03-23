@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://tvqm3w5grvnt"]
+
+[ext_resource type="PackedScene" uid="uid://bjpj3xgqhqy24" path="res://Objects/Main/main.tscn" id="1_tpml5"]
+[ext_resource type="PackedScene" uid="uid://dhwgrilchmw48" path="res://Objects/Toilet/toilet.tscn" id="2_jqemp"]
+[ext_resource type="PackedScene" uid="uid://7mmi6tg1bg6m" path="res://Objects/Handle/handle.tscn" id="3_013yr"]
+[ext_resource type="PackedScene" uid="uid://dd4e3bya12152" path="res://Objects/Clock/Clock.tscn" id="4_8vmu4"]
+[ext_resource type="Texture2D" uid="uid://u5mqsur2xyk4" path="res://Assets/Sky/mud_road_puresky_4k.exr" id="5_xfn3p"]
+[ext_resource type="Script" uid="uid://bm7gty5ee3eic" path="res://world_environment.gd" id="6_rhgbh"]
+[ext_resource type="AudioStream" uid="uid://dogx0khead766" path="res://Sound/Prison_Background.wav" id="8_013yr"]
+[ext_resource type="Script" uid="uid://dpjfn2dgvkj2n" path="res://audio_prison.gd" id="8_rhgbh"]
+[ext_resource type="Script" uid="uid://ds0gxdtwdy5bp" path="res://color_rect.gd" id="9_8vmu4"]
+[ext_resource type="PackedScene" uid="uid://tmjgimmorejc" path="res://Objects/Door/door.tscn" id="10_xfn3p"]
+[ext_resource type="PackedScene" uid="uid://citg6j30m60a2" path="res://Misc/select_menu.tscn" id="11_rhgbh"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_skmiq"]
+panorama = ExtResource("5_xfn3p")
+
+[sub_resource type="Sky" id="Sky_80nbo"]
+sky_material = SubResource("PanoramaSkyMaterial_skmiq")
+
+[sub_resource type="Environment" id="Environment_lf08s"]
+background_mode = 2
+sky = SubResource("Sky_80nbo")
+ambient_light_source = 1
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[node name="Title Screen" type="Node3D"]
+
+[node name="main" parent="." instance=ExtResource("1_tpml5")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.96642, -2.51921)
+light_color = Color(0.830012, 0.679053, 0.530727, 1)
+omni_range = 17.07
+
+[node name="SpotLight3D" type="SpotLight3D" parent="main"]
+transform = Transform3D(-0.891454, 0.12733, -0.434853, -0.244518, 0.672785, 0.698264, 0.381472, 0.728799, -0.568622, -18.385, 31.8962, -36.6493)
+light_color = Color(1, 1, 0.882353, 1)
+light_energy = 16.0
+light_indirect_energy = 5.444
+spot_range = 1494.51
+spot_angle = 89.73
+
+[node name="Toilet" parent="main" instance=ExtResource("2_jqemp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53774, -0.0128221, -0.646008)
+
+[node name="Handle2" parent="main" instance=ExtResource("3_013yr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.18135, 1.17856, -1.68972)
+
+[node name="Clock2" parent="main" instance=ExtResource("4_8vmu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0091, 1.51147, -3.11766)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05534, -0.425232, 0.0750628)
+light_color = Color(0.830012, 0.679053, 0.530727, 1)
+omni_range = 17.07
+omni_shadow_mode = 0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05534, -0.68273, -3.05238)
+light_color = Color(0.830012, 0.679053, 0.530727, 1)
+omni_range = 17.07
+omni_shadow_mode = 0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.835088, 0, -0.550116, 0, 1, 0, 0.550116, 0, 0.835088, -3.26044, 1.76843, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lf08s")
+script = ExtResource("6_rhgbh")
+
+[node name="AudioPrison" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_013yr")
+volume_db = -40.0
+autoplay = true
+script = ExtResource("8_rhgbh")
+
+[node name="SelectMenu" parent="." instance=ExtResource("11_rhgbh")]
+
+[node name="FadeIn" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="FadeIn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("9_8vmu4")
+
+[node name="Door" parent="." instance=ExtResource("10_xfn3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58044, -0.012652, -5.18026)

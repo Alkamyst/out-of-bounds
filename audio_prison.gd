@@ -2,7 +2,7 @@ extends AudioStreamPlayer
 
 @onready var otherAudio = $"../AudioOutside"
 
-var active: bool = false
+var active: bool = true
 var maxVolume = -20.0
 
 func _process(delta):

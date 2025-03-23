@@ -10,6 +10,7 @@ const CAMERA_SENSITIVITY = 0.0025
 @onready var raycast: RayCast3D = $Neck/Camera3D/RayCast3D
 @onready var hudCircle: TextureRect = %TextureRect
 @onready var key = $Neck/Camera3D/key
+var fullscreen: bool = false
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -61,6 +62,14 @@ func _physics_process(delta):
 		$Neck/Camera3D/HourHand.visible = true
 	else:
 		$Neck/Camera3D/HourHand.visible = false
+		
+	if Input.is_action_just_pressed("Fullscreen"):
+		if fullscreen:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			fullscreen = false
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			fullscreen = true
 	
 
 func click_behavior():	

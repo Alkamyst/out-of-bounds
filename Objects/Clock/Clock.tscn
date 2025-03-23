@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dd4e3bya12152"]
+[gd_scene load_steps=14 format=3 uid="uid://dd4e3bya12152"]
 
 [ext_resource type="PackedScene" uid="uid://l5teh660i2b" path="res://Models/Clock/Clock.glb" id="1_qwh1c"]
 [ext_resource type="Script" uid="uid://dj2epr0331pe8" path="res://Objects/Clock/hand_static_body.gd" id="2_jh2y0"]
 [ext_resource type="Script" uid="uid://belv2ec57d552" path="res://Objects/Clock/clock.gd" id="2_lixsf"]
 [ext_resource type="Script" uid="uid://8c5ojseiws8k" path="res://Objects/Clock/placement_static_body.gd" id="4_m14rh"]
+[ext_resource type="AudioStream" uid="uid://p1ynea628rh7" path="res://Sound/tick.wav" id="5_nrm7x"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jh2y0"]
 data = PackedVector3Array(-1, 0, 1, -0.4622, 7.0536, -0.4622, -0.4622, 7.0536, 0.4622, -1, 0, 1, -1, 0, -1, -0.4622, 7.0536, -0.4622, -1, 0, -1, 0.4622, 7.0536, -0.4622, -0.4622, 7.0536, -0.4622, -1, 0, -1, 0.3403, 0, -1, 0.4622, 7.0536, -0.4622, 0.3403, 0, -1, 0.4622, 7.0536, 0.4622, 0.4622, 7.0536, -0.4622, 0.3403, 0, -1, 0.3403, 0, 1, 0.4622, 7.0536, 0.4622, 0.3403, 0, 1, -0.4622, 7.0536, 0.4622, 0.4622, 7.0536, 0.4622, 0.3403, 0, 1, -1, 0, 1, -0.4622, 7.0536, 0.4622, -1, 0, -1, 0.3403, 0, 1, 0.3403, 0, -1, -1, 0, -1, -1, 0, 1, 0.3403, 0, 1, 0.4622, 7.0536, -0.4622, -0.4622, 7.0536, 0.4622, -0.4622, 7.0536, -0.4622, 0.4622, 7.0536, -0.4622, 0.4622, 7.0536, 0.4622, -0.4622, 7.0536, 0.4622)
@@ -64,7 +65,7 @@ visible = false
 
 [node name="HandStaticBody" type="StaticBody3D" parent="ClockBack/Clock/HourHand" index="0" groups=["Clickable"]]
 script = ExtResource("2_jh2y0")
-pos_needed = 5
+pos_needed = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClockBack/Clock/HourHand/HandStaticBody" index="0"]
 shape = SubResource("ConcavePolygonShape3D_jh2y0")
@@ -75,7 +76,7 @@ transform = Transform3D(2.7954e-09, -0.0143569, 0, 0.0143569, 2.7954e-09, 0, 0, 
 
 [node name="HandStaticBody" type="StaticBody3D" parent="ClockBack/Clock/MinuteHand" index="0" groups=["Clickable"]]
 script = ExtResource("2_jh2y0")
-pos_needed = 7
+pos_needed = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClockBack/Clock/MinuteHand/HandStaticBody" index="0"]
 shape = SubResource("ConcavePolygonShape3D_lixsf")
@@ -105,3 +106,6 @@ disabled = true
 libraries = {
 &"": SubResource("AnimationLibrary_nrm7x")
 }
+
+[node name="Audio_Turn" type="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("5_nrm7x")

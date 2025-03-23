@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c67atp3brqo0h" path="res://Models/Clock/HourHand.glb" id="1_all4m"]
 [ext_resource type="Script" uid="uid://df3v8fkc60u7t" path="res://Objects/Clock/hour_hand_static_body_3d.gd" id="2_0k018"]
-[ext_resource type="AudioStream" uid="uid://d1eshx7mrfo3f" path="res://Sound/TP.wav" id="3_yfqs3"]
+[ext_resource type="AudioStream" uid="uid://p1ynea628rh7" path="res://Sound/tick.wav" id="3_0k018"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sevje"]
 points = PackedVector3Array(0.0681798, 0.616535, 1.0713, -1.38728, 0.616535, 1.0713, 0.126381, 6.86231, 0.476785, -1.38728, -0.0545785, -1.05598, -0.939258, 6.66077, -0.60787, 0.0681798, 0.840941, -1.05598, -0.939258, 6.43706, 0.623393, 0.180186, 6.66077, -0.60787, 0.0111385, 0.249543, 0.980974, -1.38728, -0.0545785, 1.0713, 0.0131292, 0.238929, -0.968812, -1.38728, 0.840941, -1.05598, 0.180186, 6.43706, 0.623393, -0.939258, 6.66077, 0.511365, -0.810135, 6.83415, -0.457317, -1.38728, 0.840941, 0.959267, 0.127698, 6.86833, -0.462123, -0.810135, 6.83415, 0.472823)
@@ -17,4 +17,4 @@ transform = Transform3D(12.8204, 6.82121e-13, 0, -6.82121e-13, 12.8204, 0, 0, 0,
 shape = SubResource("ConvexPolygonShape3D_sevje")
 
 [node name="Audio_Grab" type="AudioStreamPlayer3D" parent="." index="1"]
-stream = ExtResource("3_yfqs3")
+stream = ExtResource("3_0k018")
