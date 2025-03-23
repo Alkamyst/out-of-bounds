@@ -1,0 +1,226 @@
+[gd_scene load_steps=30 format=3 uid="uid://bkr0fmfoqkb4o"]
+
+[ext_resource type="PackedScene" uid="uid://dqytv6mlol8lc" path="res://Objects/Player/Player.tscn" id="1_iotsf"]
+[ext_resource type="Texture2D" uid="uid://u5mqsur2xyk4" path="res://Assets/Sky/mud_road_puresky_4k.exr" id="1_lc2xo"]
+[ext_resource type="Script" uid="uid://bm7gty5ee3eic" path="res://world_environment.gd" id="2_215e1"]
+[ext_resource type="PackedScene" uid="uid://bjpj3xgqhqy24" path="res://Objects/Main/main.tscn" id="2_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://hsa6b2vgvslv" path="res://Assets/HUD/Circle.png" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://tmjgimmorejc" path="res://Objects/Door/door.tscn" id="4_fc0e3"]
+[ext_resource type="AudioStream" uid="uid://dogx0khead766" path="res://Sound/Prison_Background.wav" id="6_ryrav"]
+[ext_resource type="Script" uid="uid://dpjfn2dgvkj2n" path="res://audio_prison.gd" id="7_eow3j"]
+[ext_resource type="AudioStream" uid="uid://b8ep0nddt6obe" path="res://Sound/Outside_Background.wav" id="8_j5wjh"]
+[ext_resource type="Script" uid="uid://4lceyum1th8q" path="res://audio_rain.gd" id="9_e8heu"]
+[ext_resource type="PackedScene" uid="uid://dky5tj2r01tlg" path="res://Objects/Key/key.tscn" id="9_hve3p"]
+[ext_resource type="AudioStream" uid="uid://dgnjlnck4t825" path="res://Sound/Rain.wav" id="9_rvswv"]
+[ext_resource type="Script" uid="uid://dsn3gcn341flj" path="res://audio_outside.gd" id="9_vef74"]
+[ext_resource type="PackedScene" uid="uid://dok31u84d1wcq" path="res://Objects/Chest/chest.tscn" id="10_hve3p"]
+[ext_resource type="AudioStream" uid="uid://bji2m053uews1" path="res://Sound/Thunder.wav" id="11_boyg6"]
+[ext_resource type="PackedScene" uid="uid://ds4c0nobb6mds" path="res://Objects/Chest/chestOpen.tscn" id="11_mfdv2"]
+[ext_resource type="PackedScene" uid="uid://ciifc5sssmiie" path="res://Objects/MovingWall/moving_wall.tscn" id="12_iotsf"]
+[ext_resource type="Texture2D" uid="uid://b8aerndv71kud" path="res://Assets/Circle.png" id="15_7sc4i"]
+[ext_resource type="Script" uid="uid://dj6gpuh2s1thn" path="res://gpu_particles_3d.gd" id="16_80cx4"]
+[ext_resource type="PackedScene" uid="uid://0j5uft2ecj63" path="res://Misc/Credits/Credits.tscn" id="20_e36ub"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_215e1"]
+panorama = ExtResource("1_lc2xo")
+
+[sub_resource type="Sky" id="Sky_80nbo"]
+sky_material = SubResource("PanoramaSkyMaterial_215e1")
+
+[sub_resource type="Environment" id="Environment_e2o6t"]
+background_mode = 2
+sky = SubResource("Sky_80nbo")
+ambient_light_source = 1
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fc0e3"]
+size = Vector3(31.4233, 2.10205, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ryrav"]
+size = Vector3(10.684, 1, 10.871)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lc2xo"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 0.5, 20)
+direction = Vector3(0, -2, 0)
+spread = 3.0
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="Curve" id="Curve_lc2xo"]
+_limits = [0.0, 0.1, 0.0, 1.0]
+_data = [Vector2(0, 0.0098588), 0.0, 0.0, 0, 0, Vector2(0.090776, 0.0276745), 0.164138, 0.164138, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_215e1"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.407843, 0.72549, 0.792157, 0.203922)
+albedo_texture = ExtResource("15_7sc4i")
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_215e1"]
+material = SubResource("StandardMaterial3D_215e1")
+curve = SubResource("Curve_lc2xo")
+
+[node name="Game" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e2o6t")
+script = ExtResource("2_215e1")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_iotsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63996, 1.01803, -0.811893)
+
+[node name="main" parent="." instance=ExtResource("2_e2o6t")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.96642, -2.51921)
+light_color = Color(0.830012, 0.679053, 0.530727, 1)
+omni_range = 17.07
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05534, -0.425232, 0.0750628)
+light_color = Color(0.830012, 0.679053, 0.530727, 1)
+omni_range = 17.07
+omni_shadow_mode = 0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05534, -0.68273, -3.05238)
+light_color = Color(0.830012, 0.679053, 0.530727, 1)
+omni_range = 17.07
+omni_shadow_mode = 0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.891454, 0.12733, -0.434853, -0.244518, 0.672785, 0.698264, 0.381472, 0.728799, -0.568622, -18.385, 31.8962, -36.6493)
+light_color = Color(1, 1, 0.882353, 1)
+light_energy = 16.0
+light_indirect_energy = 5.444
+spot_range = 1494.51
+spot_angle = 89.73
+
+[node name="Door" parent="." instance=ExtResource("4_fc0e3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58044, -0.012652, -5.18026)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(4, 4)
+texture = ExtResource("2_feb5d")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="CompletionArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79939, -0.542762, -11.2275)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CompletionArea3D"]
+shape = SubResource("BoxShape3D_fc0e3")
+
+[node name="OutsideArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79939, -0.542762, -5.91674)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OutsideArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.293692)
+shape = SubResource("BoxShape3D_fc0e3")
+
+[node name="InsideArea3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79939, -0.542762, 1.18452)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InsideArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.82553, 0.819298, -0.824759)
+shape = SubResource("BoxShape3D_ryrav")
+
+[node name="AudioPrison" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ryrav")
+volume_db = -40.0
+autoplay = true
+script = ExtResource("7_eow3j")
+
+[node name="AudioRain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_rvswv")
+volume_db = -40.0
+autoplay = true
+script = ExtResource("9_e8heu")
+
+[node name="RainTimer" type="Timer" parent="AudioRain"]
+wait_time = 5.0
+one_shot = true
+
+[node name="AudioThunder" type="AudioStreamPlayer" parent="AudioRain"]
+unique_name_in_owner = true
+stream = ExtResource("11_boyg6")
+mix_target = 2
+script = ExtResource("9_e8heu")
+
+[node name="AudioOutside" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_j5wjh")
+volume_db = -40.0
+script = ExtResource("9_vef74")
+
+[node name="key" parent="." instance=ExtResource("9_hve3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.92689, 0.0159478, -1.29058)
+
+[node name="Chest" parent="." instance=ExtResource("10_hve3p")]
+transform = Transform3D(0.990845, -0.0368118, -0.129891, 0, 0.962109, -0.272667, 0.135007, 0.27017, 0.9533, 3.6713, -0.0128221, 1.92543)
+
+[node name="Chest3" parent="." instance=ExtResource("10_hve3p")]
+transform = Transform3D(0.939, 0.195912, 0.282661, -0.187597, 0.980622, -0.0564709, -0.288246, 3.72529e-09, 0.957556, 1.69688, 0.431203, 2.92599)
+
+[node name="Chest2" parent="." instance=ExtResource("10_hve3p")]
+transform = Transform3D(0.889682, -0.252989, -0.380083, 0.182747, 0.960176, -0.211342, 0.418414, 0.118568, 0.900484, -3.88172, 0.116123, 2.32243)
+
+[node name="Chest4" parent="." instance=ExtResource("11_mfdv2")]
+transform = Transform3D(0.978155, 0, -0.207878, 0.102133, 0.870982, 0.480581, 0.181058, -0.491314, 0.851956, -0.722005, 0.450654, 1.78539)
+
+[node name="MovingWall" parent="." instance=ExtResource("12_iotsf")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.174394, 16.6795, -10.1392)
+emitting = false
+amount = 2000
+lifetime = 2.0
+visibility_aabb = AABB(-16, -32, -16, 32, 32, 32)
+trail_enabled = true
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_lc2xo")
+draw_pass_1 = SubResource("RibbonTrailMesh_215e1")
+script = ExtResource("16_80cx4")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0747871, 3.48591, -0.473975)
+size = Vector3(11.9965, 3.1499, 10.0789)
+
+[node name="Credits" parent="." instance=ExtResource("20_e36ub")]
+
+[connection signal="body_entered" from="CompletionArea3D" to="Door" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="OutsideArea3D" to="AudioOutside" method="_on_outside_area_3d_body_entered"]
+[connection signal="body_entered" from="OutsideArea3D" to="MovingWall" method="_on_outside_area_3d_body_entered"]
+[connection signal="body_entered" from="InsideArea3D" to="AudioPrison" method="_on_inside_area_3d_body_entered"]
+[connection signal="timeout" from="AudioRain/RainTimer" to="Credits" method="_on_rain_timer_timeout"]

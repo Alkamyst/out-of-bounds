@@ -3,7 +3,7 @@ extends AudioStreamPlayer
 @onready var otherAudio = $"../AudioPrison"
 
 var active: bool = false
-var maxVolume = -10.0
+var maxVolume = -20.0
 
 func _process(delta):
 	if active:

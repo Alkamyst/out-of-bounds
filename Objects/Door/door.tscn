@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d0r6xcctgwpf0" path="res://Objects/Door/door.gd" id="2_yh2pu"]
 [ext_resource type="AudioStream" uid="uid://cvsdtcuqyc6ek" path="res://Sound/Unlock.wav" id="4_c24xa"]
 [ext_resource type="Script" uid="uid://delmri2f0vkce" path="res://Objects/Door/lock_2.gd" id="4_y42rg"]
-[ext_resource type="AudioStream" uid="uid://d1d7qwjj8n50l" path="res://Models/Door_Close.wav" id="5_qxoed"]
+[ext_resource type="AudioStream" uid="uid://d1d7qwjj8n50l" path="res://Sound/Door_Close.wav" id="5_qxoed"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yh2pu"]
 points = PackedVector3Array(-0.0196571, -0.976457, -0.114119, 0.0289199, -0.91031, 0.0922, -0.0196571, 0.976457, -0.114119, 1.41451, -0.976457, -0.114119, 1.41451, 0.976457, -0.114119, 0.0289199, 0.91031, 0.0922, 1.36594, -0.91031, 0.0922, 1.36594, 0.91031, 0.0922, 0.987183, 0.121962, -0.144657, 1.232, -0.1445, 0.122728, 0.987183, -0.152548, -0.144657)

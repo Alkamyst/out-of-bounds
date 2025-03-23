@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://phtcwoqaveot"
-path="res://.godot/imported/MovingWall.blend-a63709090a004b684a9c93f2fd5be81d.scn"
+valid=false
 
 [deps]
 
 source_file="res://Models/MovingWall/MovingWall.blend"
-dest_files=["res://.godot/imported/MovingWall.blend-a63709090a004b684a9c93f2fd5be81d.scn"]
 
 [params]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ciifc5sssmiie"]
+[gd_scene load_steps=8 format=3 uid="uid://ciifc5sssmiie"]
 
 [ext_resource type="PackedScene" uid="uid://cw1bqpbwutt1e" path="res://Models/MovingWall/MovingWall.glb" id="1_yewwx"]
 [ext_resource type="Script" uid="uid://dykt30wdjmy64" path="res://Objects/MovingWall/moving_wall.gd" id="2_w4pi0"]
+[ext_resource type="AudioStream" uid="uid://bqmjrmoda2eqx" path="res://Sound/Rattle.wav" id="3_7eikm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w4pi0"]
 size = Vector3(2.02295, 1.13068, 0.001)
@@ -19,6 +20,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.0675929, -0.0128221, 0.0134855)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Audio_Open:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_w4pi0"]
@@ -50,6 +63,18 @@ tracks/1/keys = {
 "method": &"rain"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio_Open:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqql5"]
 _data = {
@@ -74,3 +99,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_mqql5")
 }
 autoplay = "RESET"
+
+[node name="Audio_Open" type="AudioStreamPlayer3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.416143)
+stream = ExtResource("3_7eikm")
