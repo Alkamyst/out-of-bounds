@@ -4,7 +4,7 @@ var can_flush: bool = true
 
 func clicked():
 	if can_flush:
-		$"../FlusherAnimation".play("new_animation")
+		$"../..".flush()
 		can_flush = false
 
 func enable_flush():
