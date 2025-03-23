@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqytv6mlol8lc"]
+[gd_scene load_steps=7 format=3 uid="uid://dqytv6mlol8lc"]
 
 [ext_resource type="Script" uid="uid://dxed1tjjh3mtr" path="res://Objects/Player/Player.gd" id="1_we6tp"]
 [ext_resource type="PackedScene" uid="uid://cmpibfi3xcskc" path="res://Models/Key/key.glb" id="2_oansn"]
+[ext_resource type="PackedScene" uid="uid://c67atp3brqo0h" path="res://Models/Clock/HourHand.glb" id="3_b0me6"]
 [ext_resource type="PackedScene" uid="uid://bvwt5hxtve7ve" path="res://Models/Toilet Paper/Toilet Paper.glb" id="3_cac6a"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mwb40"]
@@ -33,6 +34,10 @@ target_position = Vector3(0, 0, -1.5)
 
 [node name="key" parent="Neck/Camera3D" instance=ExtResource("2_oansn")]
 transform = Transform3D(-0.180519, -0.982635, 0.0429027, 0, 0.0436193, 0.999048, -0.983571, 0.180347, -0.00787412, 0.142595, -0.104753, -0.254397)
+visible = false
+
+[node name="HourHand" parent="Neck/Camera3D" instance=ExtResource("3_b0me6")]
+transform = Transform3D(-0.186318, 0, 0.982489, 0, 1, 0, -0.982489, 0, -0.186318, 0.084, -0.06, 0)
 visible = false
 
 [node name="Toilet Paper" parent="Neck/Camera3D" instance=ExtResource("3_cac6a")]

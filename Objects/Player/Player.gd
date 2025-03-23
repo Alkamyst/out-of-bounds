@@ -56,6 +56,11 @@ func _physics_process(delta):
 		$"Neck/Camera3D/Toilet Paper".visible = true
 	else:
 		$"Neck/Camera3D/Toilet Paper".visible = false
+		
+	if Globals.have_hand:
+		$Neck/Camera3D/HourHand.visible = true
+	else:
+		$Neck/Camera3D/HourHand.visible = false
 	
 
 func click_behavior():	

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu0xxuvp4w71v"]
+
+[ext_resource type="PackedScene" uid="uid://c67atp3brqo0h" path="res://Models/Clock/HourHand.glb" id="1_all4m"]
+[ext_resource type="Script" uid="uid://df3v8fkc60u7t" path="res://Objects/Clock/hour_hand_static_body_3d.gd" id="2_0k018"]
+[ext_resource type="AudioStream" uid="uid://d1eshx7mrfo3f" path="res://Sound/TP.wav" id="3_yfqs3"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sevje"]
+points = PackedVector3Array(0.0681798, 0.616535, 1.0713, -1.38728, 0.616535, 1.0713, 0.126381, 6.86231, 0.476785, -1.38728, -0.0545785, -1.05598, -0.939258, 6.66077, -0.60787, 0.0681798, 0.840941, -1.05598, -0.939258, 6.43706, 0.623393, 0.180186, 6.66077, -0.60787, 0.0111385, 0.249543, 0.980974, -1.38728, -0.0545785, 1.0713, 0.0131292, 0.238929, -0.968812, -1.38728, 0.840941, -1.05598, 0.180186, 6.43706, 0.623393, -0.939258, 6.66077, 0.511365, -0.810135, 6.83415, -0.457317, -1.38728, 0.840941, 0.959267, 0.127698, 6.86833, -0.462123, -0.810135, 6.83415, 0.472823)
+
+[node name="HourHand" instance=ExtResource("1_all4m")]
+
+[node name="HourHandStaticBody3D" type="StaticBody3D" parent="HourHand" index="0" groups=["Clickable"]]
+script = ExtResource("2_0k018")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HourHand/HourHandStaticBody3D" index="0"]
+transform = Transform3D(12.8204, 6.82121e-13, 0, -6.82121e-13, 12.8204, 0, 0, 0, 12.8204, -6.32332e-06, -35.3626, 0)
+shape = SubResource("ConvexPolygonShape3D_sevje")
+
+[node name="Audio_Grab" type="AudioStreamPlayer3D" parent="." index="1"]
+stream = ExtResource("3_yfqs3")

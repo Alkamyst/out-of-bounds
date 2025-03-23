@@ -16,6 +16,12 @@ func delete():
 	var new_explosion = EXPLOSION.instantiate()
 	new_explosion.global_position = global_position
 	get_tree().get_root().add_child(new_explosion)
+	
+	const HAND = preload("res://Objects/Clock/hour_hand.tscn")
+	var new_hand = HAND.instantiate()
+	new_hand.global_position = global_position
+	new_hand.rotation_degrees.y = 30
+	get_tree().get_root().add_child(new_hand)
 	queue_free()
 
 func tp_cannot_pickup():
