@@ -51,6 +51,11 @@ func _physics_process(delta):
 		key.visible = true
 	else:
 		key.visible = false
+		
+	if Globals.have_tp:
+		$"Neck/Camera3D/Toilet Paper".visible = true
+	else:
+		$"Neck/Camera3D/Toilet Paper".visible = false
 	
 
 func click_behavior():	

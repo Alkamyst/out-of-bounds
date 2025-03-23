@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://7mmi6tg1bg6m"]
+
+[ext_resource type="PackedScene" uid="uid://cd1di5e37pot4" path="res://Models/Toilet/Handle.glb" id="1_c4utd"]
+[ext_resource type="PackedScene" uid="uid://bvwt5hxtve7ve" path="res://Models/Toilet Paper/Toilet Paper.glb" id="2_ifi2w"]
+[ext_resource type="Script" uid="uid://87vc820p11a6" path="res://Objects/Toilet/toilet_paper.gd" id="3_f0sxk"]
+[ext_resource type="AudioStream" uid="uid://d1eshx7mrfo3f" path="res://Sound/TP.wav" id="4_ifi2w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sayw6"]
+size = Vector3(0.192993, 0.195953, 0.232178)
+
+[node name="Handle2" instance=ExtResource("1_c4utd")]
+
+[node name="Toilet Paper Handle" parent="Handle" index="0" instance=ExtResource("2_ifi2w")]
+unique_name_in_owner = true
+transform = Transform3D(-39.6121, 0, 0, 0, -39.6121, 0, 0, 0, -39.6121, 5.59842, -0.182968, -6.48188)
+
+[node name="ToiletPaper" type="StaticBody3D" parent="Handle" index="1" groups=["Clickable"]]
+transform = Transform3D(-39.6121, 0, 0, 0, -39.6121, 0, 0, 0, -39.6121, 5.89511, -0.202232, -6.5587)
+script = ExtResource("3_f0sxk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Handle/ToiletPaper" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00714114, 0.00175476, -0.00256348)
+shape = SubResource("BoxShape3D_sayw6")
+
+[node name="TPAudio" type="AudioStreamPlayer3D" parent="." index="1"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135905, 0, 0.164)
+stream = ExtResource("4_ifi2w")
