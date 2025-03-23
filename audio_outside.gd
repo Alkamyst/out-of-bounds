@@ -17,5 +17,6 @@ func _process(delta):
 func _on_outside_area_3d_body_entered(body):
 	if body.is_in_group("Player"):
 		active = true
+		Globals.is_outside = true
 		otherAudio.active = false
 		play()

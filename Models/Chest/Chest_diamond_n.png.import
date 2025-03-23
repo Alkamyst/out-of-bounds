@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://de3p38e8w2g8q"
 path.s3tc="res://.godot/imported/Chest_diamond_n.png-3d38619947a8c94f70ae62856573fdce.s3tc.ctex"
+path.etc2="res://.godot/imported/Chest_diamond_n.png-3d38619947a8c94f70ae62856573fdce.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Models/Chest/Chest_diamond_n.png"
-dest_files=["res://.godot/imported/Chest_diamond_n.png-3d38619947a8c94f70ae62856573fdce.s3tc.ctex"]
+dest_files=["res://.godot/imported/Chest_diamond_n.png-3d38619947a8c94f70ae62856573fdce.s3tc.ctex", "res://.godot/imported/Chest_diamond_n.png-3d38619947a8c94f70ae62856573fdce.etc2.ctex"]
 
 [params]
 

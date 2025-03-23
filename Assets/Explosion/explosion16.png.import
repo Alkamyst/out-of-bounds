@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt1qmgof1nhri"
 path.s3tc="res://.godot/imported/explosion16.png-9aaa1503de3d0848401432db4fdb7c6b.s3tc.ctex"
+path.etc2="res://.godot/imported/explosion16.png-9aaa1503de3d0848401432db4fdb7c6b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Explosion/explosion16.png"
-dest_files=["res://.godot/imported/explosion16.png-9aaa1503de3d0848401432db4fdb7c6b.s3tc.ctex"]
+dest_files=["res://.godot/imported/explosion16.png-9aaa1503de3d0848401432db4fdb7c6b.s3tc.ctex", "res://.godot/imported/explosion16.png-9aaa1503de3d0848401432db4fdb7c6b.etc2.ctex"]
 
 [params]
 

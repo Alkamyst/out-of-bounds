@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://boxo8me1640o8"
 path.s3tc="res://.godot/imported/bluecloth_n.jpg-90fd154100eac0808509f5a24e105ef3.s3tc.ctex"
+path.etc2="res://.godot/imported/bluecloth_n.jpg-90fd154100eac0808509f5a24e105ef3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Models/Textures/bluecloth_n.jpg"
-dest_files=["res://.godot/imported/bluecloth_n.jpg-90fd154100eac0808509f5a24e105ef3.s3tc.ctex"]
+dest_files=["res://.godot/imported/bluecloth_n.jpg-90fd154100eac0808509f5a24e105ef3.s3tc.ctex", "res://.godot/imported/bluecloth_n.jpg-90fd154100eac0808509f5a24e105ef3.etc2.ctex"]
 
 [params]
 

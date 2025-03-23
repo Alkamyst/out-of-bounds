@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7d0xa6si4r3p"
 path.s3tc="res://.godot/imported/Toilet_water.jpg-bc421b6bcc0c52f2172e2a5ab425b561.s3tc.ctex"
+path.etc2="res://.godot/imported/Toilet_water.jpg-bc421b6bcc0c52f2172e2a5ab425b561.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Models/Toilet/Toilet_water.jpg"
-dest_files=["res://.godot/imported/Toilet_water.jpg-bc421b6bcc0c52f2172e2a5ab425b561.s3tc.ctex"]
+dest_files=["res://.godot/imported/Toilet_water.jpg-bc421b6bcc0c52f2172e2a5ab425b561.s3tc.ctex", "res://.godot/imported/Toilet_water.jpg-bc421b6bcc0c52f2172e2a5ab425b561.etc2.ctex"]
 
 [params]
 

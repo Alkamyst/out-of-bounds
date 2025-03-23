@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://gpqktn4c1amj"
 path.s3tc="res://.godot/imported/main_diamond.png-5ce273d1611e123a11cf7b8f01c36824.s3tc.ctex"
+path.etc2="res://.godot/imported/main_diamond.png-5ce273d1611e123a11cf7b8f01c36824.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Models/Export/main_diamond.png"
-dest_files=["res://.godot/imported/main_diamond.png-5ce273d1611e123a11cf7b8f01c36824.s3tc.ctex"]
+dest_files=["res://.godot/imported/main_diamond.png-5ce273d1611e123a11cf7b8f01c36824.s3tc.ctex", "res://.godot/imported/main_diamond.png-5ce273d1611e123a11cf7b8f01c36824.etc2.ctex"]
 
 [params]
 

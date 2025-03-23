@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dc4w1pl43ge1b"
 path.s3tc="res://.godot/imported/main_metal.png-f66433283c92886df03a7f54dbea586e.s3tc.ctex"
+path.etc2="res://.godot/imported/main_metal.png-f66433283c92886df03a7f54dbea586e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Models/Export/main_metal.png"
-dest_files=["res://.godot/imported/main_metal.png-f66433283c92886df03a7f54dbea586e.s3tc.ctex"]
+dest_files=["res://.godot/imported/main_metal.png-f66433283c92886df03a7f54dbea586e.s3tc.ctex", "res://.godot/imported/main_metal.png-f66433283c92886df03a7f54dbea586e.etc2.ctex"]
 
 [params]
 

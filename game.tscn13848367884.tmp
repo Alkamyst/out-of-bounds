@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bkr0fmfoqkb4o"]
+[gd_scene load_steps=34 format=3 uid="uid://bkr0fmfoqkb4o"]
 
 [ext_resource type="PackedScene" uid="uid://dqytv6mlol8lc" path="res://Objects/Player/Player.tscn" id="1_iotsf"]
 [ext_resource type="Texture2D" uid="uid://u5mqsur2xyk4" path="res://Assets/Sky/mud_road_puresky_4k.exr" id="1_lc2xo"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://7mmi6tg1bg6m" path="res://Objects/Handle/handle.tscn" id="22_x5p1p"]
 [ext_resource type="PackedScene" uid="uid://dd4e3bya12152" path="res://Objects/Clock/Clock.tscn" id="23_qhcbd"]
 [ext_resource type="Script" uid="uid://ds0gxdtwdy5bp" path="res://color_rect.gd" id="24_f1jbl"]
-[ext_resource type="PackedScene" uid="uid://ckuhvovt50xbh" path="res://Misc/fullscreen_controller.tscn" id="25_vaj68"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_215e1"]
 panorama = ExtResource("1_lc2xo")
@@ -253,8 +252,6 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("24_f1jbl")
-
-[node name="FullscreenController" parent="." instance=ExtResource("25_vaj68")]
 
 [connection signal="body_entered" from="CompletionArea3D" to="Door" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="OutsideArea3D" to="AudioOutside" method="_on_outside_area_3d_body_entered"]

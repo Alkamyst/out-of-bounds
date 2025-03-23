@@ -21,21 +21,6 @@ data = PackedVector3Array(-0.1594, 0.016, -0.2761, 0, 0.1975, -0.2761, 0, 0.016,
 [sub_resource type="BoxShape3D" id="BoxShape3D_lixsf"]
 size = Vector3(1, 0.585205, 1)
 
-[sub_resource type="Animation" id="Animation_lixsf"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ClockBack/Clock:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(2, 2),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 2.96706)]
-}
-
 [sub_resource type="Animation" id="Animation_m14rh"]
 length = 0.001
 tracks/0/type = "value"
@@ -49,6 +34,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lixsf"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClockBack/Clock:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 2.96706)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nrm7x"]

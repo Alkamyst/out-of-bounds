@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckuhvovt50xbh"]
+
+[ext_resource type="Script" uid="uid://biry3mtnhqcsr" path="res://fullscreen_controller.gd" id="1_8n2o5"]
+
+[node name="FullscreenController" type="Node"]
+script = ExtResource("1_8n2o5")

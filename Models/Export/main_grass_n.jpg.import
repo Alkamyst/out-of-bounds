@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://id00by8hita1"
 path.s3tc="res://.godot/imported/main_grass_n.jpg-dde582fa65a137c7b8f651232e1d4628.s3tc.ctex"
+path.etc2="res://.godot/imported/main_grass_n.jpg-dde582fa65a137c7b8f651232e1d4628.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Models/Export/main_grass_n.jpg"
-dest_files=["res://.godot/imported/main_grass_n.jpg-dde582fa65a137c7b8f651232e1d4628.s3tc.ctex"]
+dest_files=["res://.godot/imported/main_grass_n.jpg-dde582fa65a137c7b8f651232e1d4628.s3tc.ctex", "res://.godot/imported/main_grass_n.jpg-dde582fa65a137c7b8f651232e1d4628.etc2.ctex"]
 
 [params]
 

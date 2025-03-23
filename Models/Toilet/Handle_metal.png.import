@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://t2mny2tfqb5v"
 path.s3tc="res://.godot/imported/Handle_metal.png-680b3e5d6308fc3e2a0aace1dbb470a2.s3tc.ctex"
+path.etc2="res://.godot/imported/Handle_metal.png-680b3e5d6308fc3e2a0aace1dbb470a2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Models/Toilet/Handle_metal.png"
-dest_files=["res://.godot/imported/Handle_metal.png-680b3e5d6308fc3e2a0aace1dbb470a2.s3tc.ctex"]
+dest_files=["res://.godot/imported/Handle_metal.png-680b3e5d6308fc3e2a0aace1dbb470a2.s3tc.ctex", "res://.godot/imported/Handle_metal.png-680b3e5d6308fc3e2a0aace1dbb470a2.etc2.ctex"]
 
 [params]
 

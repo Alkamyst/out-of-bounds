@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://tvqm3w5grvnt"]
+[gd_scene load_steps=16 format=3 uid="uid://tvqm3w5grvnt"]
 
 [ext_resource type="PackedScene" uid="uid://bjpj3xgqhqy24" path="res://Objects/Main/main.tscn" id="1_tpml5"]
 [ext_resource type="PackedScene" uid="uid://dhwgrilchmw48" path="res://Objects/Toilet/toilet.tscn" id="2_jqemp"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://ds0gxdtwdy5bp" path="res://color_rect.gd" id="9_8vmu4"]
 [ext_resource type="PackedScene" uid="uid://tmjgimmorejc" path="res://Objects/Door/door.tscn" id="10_xfn3p"]
 [ext_resource type="PackedScene" uid="uid://citg6j30m60a2" path="res://Misc/select_menu.tscn" id="11_rhgbh"]
+[ext_resource type="PackedScene" uid="uid://ckuhvovt50xbh" path="res://Misc/fullscreen_controller.tscn" id="12_skmiq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_skmiq"]
 panorama = ExtResource("5_xfn3p")
@@ -102,3 +103,5 @@ script = ExtResource("9_8vmu4")
 
 [node name="Door" parent="." instance=ExtResource("10_xfn3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58044, -0.012652, -5.18026)
+
+[node name="FullscreenController" parent="." instance=ExtResource("12_skmiq")]

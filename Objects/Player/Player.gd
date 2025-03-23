@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
+const SPEED = 4.0
 #const JUMP_VELOCITY = 4.5
 const CAMERA_SENSITIVITY = 0.0025
 
@@ -10,7 +10,7 @@ const CAMERA_SENSITIVITY = 0.0025
 @onready var raycast: RayCast3D = $Neck/Camera3D/RayCast3D
 @onready var hudCircle: TextureRect = %TextureRect
 @onready var key = $Neck/Camera3D/key
-var fullscreen: bool = false
+var stepLeft: bool = true
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -62,15 +62,12 @@ func _physics_process(delta):
 		$Neck/Camera3D/HourHand.visible = true
 	else:
 		$Neck/Camera3D/HourHand.visible = false
-		
-	if Input.is_action_just_pressed("Fullscreen"):
-		if fullscreen:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			fullscreen = false
-		else:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-			fullscreen = true
 	
+	if velocity.x != 0 and velocity.z != 0:
+		if not $AnimationPlayer.is_playing():
+			$AnimationPlayer.play("step")
+	else:
+		$AnimationPlayer.stop()
 
 func click_behavior():	
 	if raycast.get_collider() != null:
@@ -81,3 +78,24 @@ func click_behavior():
 			return
 			
 	hudCircle.scale = Vector2(1, 1)
+
+func play_step():
+	if not Globals.is_outside:
+		if stepLeft:
+			$StepStoneLeft.pitch_scale = randf_range(0.8, 1.2)
+			$StepStoneLeft.play()
+			stepLeft = false
+		else:
+			$StepStoneRight.pitch_scale = randf_range(0.8, 1.2)
+			$StepStoneRight.play()
+			stepLeft = true
+	else:
+		if stepLeft:
+			$StepGrassLeft.pitch_scale = randf_range(0.8, 1.2)
+			$StepGrassLeft.play()
+			stepLeft = false
+		else:
+			$StepGrassRight.pitch_scale = randf_range(0.8, 1.2)
+			$StepGrassRight.play()
+			stepLeft = true
+	#$StepGrass.play()
