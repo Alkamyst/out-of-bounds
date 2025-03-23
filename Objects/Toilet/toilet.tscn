@@ -1,0 +1,272 @@
+[gd_scene load_steps=16 format=3 uid="uid://dhwgrilchmw48"]
+
+[ext_resource type="PackedScene" uid="uid://isnkf7puo1yu" path="res://Models/Toilet/Toilet.glb" id="1_qjimj"]
+[ext_resource type="Script" uid="uid://ci6dioewj6h28" path="res://Objects/Toilet/toilet.gd" id="2_fyjt7"]
+[ext_resource type="Script" uid="uid://cpi7hog2u1tn0" path="res://Objects/Toilet/static_body_3d.gd" id="3_53d6g"]
+
+[sub_resource type="Animation" id="Animation_53d6g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.54616, 2.54616, 2.54616)]
+}
+
+[sub_resource type="Animation" id="Animation_fyjt7"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(2.54616, 2.54616, 2.54616), Vector3(2.546, 0, 2.546)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wsp1v"]
+_data = {
+&"RESET": SubResource("Animation_53d6g"),
+&"new_animation": SubResource("Animation_fyjt7")
+}
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fyjt7"]
+points = PackedVector3Array(-1.50125, 2.31266, -0.430373, 0.949066, -0.0270889, -0.455896, -0.628433, 2.36153, 1.10063, -0.621978, -0.026776, 0.464585, 0.187258, 2.46746, -1.30195, -0.621978, -0.026776, -0.455896, 0.949066, -0.0270889, 0.464585, 1.76123, 2.46508, -0.781201, 0.136223, 2.30493, 1.29541, -1.49023, 2.46032, 0.436136, -0.684785, 2.46918, -1.09896, 1.81553, 3.1694, 0.193633, 1.76123, 2.46508, 0.78989, 1.65296, 1.76077, -0.672766, 0.0339497, 1.80111, -1.19803, 1.81553, 3.1694, -0.184944, -0.0171658, 2.46726, 1.31034, -1.48498, 2.45745, -0.426053, -1.40372, 1.85314, 0.389241, 0.0345857, 1.79968, 1.19924, 1.68663, 1.907, 0.546914, -0.890804, 2.46964, 0.954143, 1.81553, 2.78986, -0.618414, -1.41111, 1.85449, -0.382401, 1.65296, 1.97697, 0.735538, 1.599, 1.81458, -0.726849, -0.623644, 1.79891, -0.983871, 1.76123, 2.57334, 0.78989, -0.67424, 1.74822, 0.941464, 0.136223, 1.79864, -1.18512, 1.79188, 2.42489, -0.590411, 0.341836, 2.47, 1.26237)
+
+[sub_resource type="Animation" id="Animation_qjimj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Toilet/Water:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.00149967, 1.73556, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Toilet/Water:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.54616, 2.54616, 2.54616)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Toilet/Water:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Toilet/Water/WaterAnimation:current_animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_wsp1v"]
+resource_name = "flush"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Toilet/Water:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.53333, 4),
+"transitions": PackedFloat32Array(2, 2, 1, 1),
+"update": 0,
+"values": [Vector3(-0.00149967, 1.73556, 0), Vector3(-0.001, 1.2, 0), Vector3(-0.001, 1.2, 0), Vector3(-0.00149967, 1.73556, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Toilet/Water:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.53333, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(2.54616, 2.54616, 2.54616), Vector3(1.59, 1.59, 1.59), Vector3(1.415, 1.415, 1.415), Vector3(2.54616, 2.54616, 2.54616)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Toilet/Water:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.53333, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Toilet/Water/WaterAnimation:current_animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"new_animation"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Flusher/StaticBody3D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enable_flush"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fi0uq"]
+resource_name = "unflush"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fi0uq"]
+_data = {
+&"RESET": SubResource("Animation_qjimj"),
+&"flush": SubResource("Animation_wsp1v"),
+&"unflush": SubResource("Animation_fi0uq")
+}
+
+[sub_resource type="Animation" id="Animation_u863f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.73308, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../FlushAnimation:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_h40k5"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.97),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector3(0, -0.73308, 0), Vector3(-0.570723, -0.733038, 0), Vector3(0, -0.73308, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../FlushAnimation:current_animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"flush"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0anw"]
+_data = {
+&"RESET": SubResource("Animation_u863f"),
+&"new_animation": SubResource("Animation_h40k5")
+}
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fyjt7"]
+data = PackedVector3Array(0.123, -0.1502, 0.8713, 0.2029, 0.2479, -0.2115, 0.123, 0.1502, 0.8713, 0.123, -0.1502, 0.8713, 0.2029, -0.2479, -0.2115, 0.2029, 0.2479, -0.2115, 0.2029, -0.2479, -0.2115, -0.2029, 0.2479, -0.2115, 0.2029, 0.2479, -0.2115, 0.2029, -0.2479, -0.2115, -0.2029, -0.2479, -0.2115, -0.2029, 0.2479, -0.2115, -0.2029, -0.2479, -0.2115, -0.123, 0.1502, 0.8713, -0.2029, 0.2479, -0.2115, -0.2029, -0.2479, -0.2115, -0.123, -0.1502, 0.8713, -0.123, 0.1502, 0.8713, -0.123, -0.1502, 0.8713, 0.123, 0.1502, 0.8713, -0.123, 0.1502, 0.8713, -0.123, -0.1502, 0.8713, 0.123, -0.1502, 0.8713, 0.123, 0.1502, 0.8713, 0.2029, -0.2479, -0.2115, -0.123, -0.1502, 0.8713, -0.2029, -0.2479, -0.2115, 0.2029, -0.2479, -0.2115, 0.123, -0.1502, 0.8713, -0.123, -0.1502, 0.8713, -0.2029, 0.2479, -0.2115, 0.123, 0.1502, 0.8713, 0.2029, 0.2479, -0.2115, -0.2029, 0.2479, -0.2115, -0.123, 0.1502, 0.8713, 0.123, 0.1502, 0.8713)
+
+[node name="Toilet" instance=ExtResource("1_qjimj")]
+script = ExtResource("2_fyjt7")
+
+[node name="Water" parent="Toilet" index="0"]
+transform = Transform3D(2.54616, 0, 0, 0, 2.54616, 0, 0, 0, 2.54616, -0.00149967, 1.73556, 0)
+
+[node name="WaterAnimation" type="AnimationPlayer" parent="Toilet/Water" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_wsp1v")
+}
+autoplay = "new_animation"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Toilet" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Toilet/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_fyjt7")
+
+[node name="FlushAnimation" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_fi0uq")
+}
+
+[node name="Flusher" parent="." index="2"]
+transform = Transform3D(-0.0956464, 0, 0.0861276, 0, -0.12871, 0, -0.0861276, 0, -0.0956464, 0.482501, 1.26562, -0.275657)
+
+[node name="FlusherAnimation" type="AnimationPlayer" parent="Flusher" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_r0anw")
+}
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Flusher" index="1" groups=["Clickable"]]
+script = ExtResource("3_53d6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flusher/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_fyjt7")

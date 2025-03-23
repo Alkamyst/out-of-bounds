@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bkr0fmfoqkb4o"]
+[gd_scene load_steps=31 format=3 uid="uid://bkr0fmfoqkb4o"]
 
 [ext_resource type="PackedScene" uid="uid://dqytv6mlol8lc" path="res://Objects/Player/Player.tscn" id="1_iotsf"]
 [ext_resource type="Texture2D" uid="uid://u5mqsur2xyk4" path="res://Assets/Sky/mud_road_puresky_4k.exr" id="1_lc2xo"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b8aerndv71kud" path="res://Assets/Circle.png" id="15_7sc4i"]
 [ext_resource type="Script" uid="uid://dj6gpuh2s1thn" path="res://gpu_particles_3d.gd" id="16_80cx4"]
 [ext_resource type="PackedScene" uid="uid://0j5uft2ecj63" path="res://Misc/Credits/Credits.tscn" id="20_e36ub"]
+[ext_resource type="PackedScene" uid="uid://dhwgrilchmw48" path="res://Objects/Toilet/toilet.tscn" id="21_hb5m1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_215e1"]
 panorama = ExtResource("1_lc2xo")
@@ -219,6 +220,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0747871, 3.48591, -0.473975
 size = Vector3(11.9965, 3.1499, 10.0789)
 
 [node name="Credits" parent="." instance=ExtResource("20_e36ub")]
+
+[node name="Toilet" parent="." instance=ExtResource("21_hb5m1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53774, -0.0128221, -0.646008)
 
 [connection signal="body_entered" from="CompletionArea3D" to="Door" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="OutsideArea3D" to="AudioOutside" method="_on_outside_area_3d_body_entered"]
