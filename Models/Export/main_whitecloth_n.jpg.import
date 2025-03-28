@@ -3,24 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://di2qalfm3roia"
-path.s3tc="res://.godot/imported/main_whitecloth_n.jpg-e6001e58af3ecc1db675137dab34492c.s3tc.ctex"
-path.etc2="res://.godot/imported/main_whitecloth_n.jpg-e6001e58af3ecc1db675137dab34492c.etc2.ctex"
+path="res://.godot/imported/main_whitecloth_n.jpg-e6001e58af3ecc1db675137dab34492c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "7ce67f03f86d507b9c8f3f155adee9c6"
+"md5": "7373b710dcb1dba3f844c295a98045f7"
 }
 
 [deps]
 
 source_file="res://Models/Export/main_whitecloth_n.jpg"
-dest_files=["res://.godot/imported/main_whitecloth_n.jpg-e6001e58af3ecc1db675137dab34492c.s3tc.ctex", "res://.godot/imported/main_whitecloth_n.jpg-e6001e58af3ecc1db675137dab34492c.etc2.ctex"]
+dest_files=["res://.godot/imported/main_whitecloth_n.jpg-e6001e58af3ecc1db675137dab34492c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

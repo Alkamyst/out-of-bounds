@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cggtvyb7y3x5v"
-path.s3tc="res://.godot/imported/main_floor_n.jpg-0fc4a6ca5673e7cb5a2ab7430199925d.s3tc.ctex"
-path.etc2="res://.godot/imported/main_floor_n.jpg-0fc4a6ca5673e7cb5a2ab7430199925d.etc2.ctex"
+path.s3tc="res://.godot/imported/main_floor_n.jpg-49f3af64ee80ff41a903e009d1d26087.s3tc.ctex"
+path.etc2="res://.godot/imported/main_floor_n.jpg-49f3af64ee80ff41a903e009d1d26087.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Models/Export/main_floor_n.jpg"
-dest_files=["res://.godot/imported/main_floor_n.jpg-0fc4a6ca5673e7cb5a2ab7430199925d.s3tc.ctex", "res://.godot/imported/main_floor_n.jpg-0fc4a6ca5673e7cb5a2ab7430199925d.etc2.ctex"]
+source_file="res://Misc/Credits/main_floor_n.jpg"
+dest_files=["res://.godot/imported/main_floor_n.jpg-49f3af64ee80ff41a903e009d1d26087.s3tc.ctex", "res://.godot/imported/main_floor_n.jpg-49f3af64ee80ff41a903e009d1d26087.etc2.ctex"]
 
 [params]
 

@@ -3,21 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://oc2awvhl0lq0"
-path.s3tc="res://.godot/imported/explosion2.png-578befc8de02acb6566d985684f1817d.s3tc.ctex"
-path.etc2="res://.godot/imported/explosion2.png-578befc8de02acb6566d985684f1817d.etc2.ctex"
+path="res://.godot/imported/explosion2.png-578befc8de02acb6566d985684f1817d.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Explosion/explosion2.png"
-dest_files=["res://.godot/imported/explosion2.png-578befc8de02acb6566d985684f1817d.s3tc.ctex", "res://.godot/imported/explosion2.png-578befc8de02acb6566d985684f1817d.etc2.ctex"]
+dest_files=["res://.godot/imported/explosion2.png-578befc8de02acb6566d985684f1817d.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

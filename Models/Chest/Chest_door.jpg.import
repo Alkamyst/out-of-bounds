@@ -3,11 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7gvq7eq1fy7i"
-path.s3tc="res://.godot/imported/Chest_door.jpg-eeb0b197cc5d51cf7d9bb74e51be3342.s3tc.ctex"
-path.etc2="res://.godot/imported/Chest_door.jpg-eeb0b197cc5d51cf7d9bb74e51be3342.etc2.ctex"
+path="res://.godot/imported/Chest_door.jpg-eeb0b197cc5d51cf7d9bb74e51be3342.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "304092bb49c33d0d684358628de90119"
@@ -16,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://Models/Chest/Chest_door.jpg"
-dest_files=["res://.godot/imported/Chest_door.jpg-eeb0b197cc5d51cf7d9bb74e51be3342.s3tc.ctex", "res://.godot/imported/Chest_door.jpg-eeb0b197cc5d51cf7d9bb74e51be3342.etc2.ctex"]
+dest_files=["res://.godot/imported/Chest_door.jpg-eeb0b197cc5d51cf7d9bb74e51be3342.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

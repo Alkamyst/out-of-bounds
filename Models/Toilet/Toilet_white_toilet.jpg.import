@@ -3,11 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bema7naxkl225"
-path.s3tc="res://.godot/imported/Toilet_white_toilet.jpg-6403a7c4407936ec61373349c9048cf1.s3tc.ctex"
-path.etc2="res://.godot/imported/Toilet_white_toilet.jpg-6403a7c4407936ec61373349c9048cf1.etc2.ctex"
+path="res://.godot/imported/Toilet_white_toilet.jpg-6403a7c4407936ec61373349c9048cf1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "d2ad8774425c9c387916dba558295806"
@@ -16,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://Models/Toilet/Toilet_white_toilet.jpg"
-dest_files=["res://.godot/imported/Toilet_white_toilet.jpg-6403a7c4407936ec61373349c9048cf1.s3tc.ctex", "res://.godot/imported/Toilet_white_toilet.jpg-6403a7c4407936ec61373349c9048cf1.etc2.ctex"]
+dest_files=["res://.godot/imported/Toilet_white_toilet.jpg-6403a7c4407936ec61373349c9048cf1.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

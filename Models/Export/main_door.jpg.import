@@ -3,11 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4c4y5xh5qdku"
-path.s3tc="res://.godot/imported/main_door.jpg-d176c399200725858c1d338e3c554feb.s3tc.ctex"
-path.etc2="res://.godot/imported/main_door.jpg-d176c399200725858c1d338e3c554feb.etc2.ctex"
+path="res://.godot/imported/main_door.jpg-d176c399200725858c1d338e3c554feb.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "304092bb49c33d0d684358628de90119"
@@ -16,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://Models/Export/main_door.jpg"
-dest_files=["res://.godot/imported/main_door.jpg-d176c399200725858c1d338e3c554feb.s3tc.ctex", "res://.godot/imported/main_door.jpg-d176c399200725858c1d338e3c554feb.etc2.ctex"]
+dest_files=["res://.godot/imported/main_door.jpg-d176c399200725858c1d338e3c554feb.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
